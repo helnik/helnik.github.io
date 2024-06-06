@@ -16,10 +16,10 @@ timezone: Europe/Athens
 
 title: Code and Cloud Crums # the main title
 
-tagline: C#, Azure and random technical stuff  # it will display as the sub-title
+tagline: C#, Azure and other technical stuff  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  C#, Azure and random technical stuff 
+  C#, Azure and other technical stuff 
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
