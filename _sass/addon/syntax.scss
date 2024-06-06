@@ -9,7 +9,8 @@ html {
   @media (prefers-color-scheme: light) {
     &:not([data-mode]),
     &[data-mode='light'] {
-      @include light-syntax;
+      //@include light-syntax;
+      @include dark-syntax;
     }
 
     &[data-mode='dark'] {
@@ -24,7 +25,8 @@ html {
     }
 
     &[data-mode='light'] {
-      @include light-syntax;
+      //@include light-syntax;
+      @include dark-syntax;
     }
   }
 }

@@ -11,3 +11,13 @@
 @import 'layout/archives';
 @import 'layout/categories';
 @import 'layout/category-tag';
+
+// hide categories from the blog post end
+.post-meta.mb-3 {
+    display: none;
+  }
+  
+  // hide the license from the blog post end
+  .license-wrapper {
+    display: none;
+  }
