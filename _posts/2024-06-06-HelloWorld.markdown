@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Hello, World! in Babel Tower"
-date:   2024-06-31 21:00:00 +0300
+title:  "Hello, World!"
+date:   2024-06-06 23:00:00 +0300
 categories: programming
 tags: general
 ---
