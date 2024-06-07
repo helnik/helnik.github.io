@@ -14,7 +14,7 @@ timezone: Europe/Athens
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Code and Cloud Crums # the main title
+title: Code and Cloud Crumbs # the main title
 
 tagline: C#, Azure and other technical stuff  # it will display as the sub-title
 
@@ -96,7 +96,7 @@ theme_mode: light # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: /assets/images/ccc.png
+avatar: /assets/images/ccc2.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
