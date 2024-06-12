@@ -216,7 +216,7 @@ _Data Connection creation_
 
 In Event Hub we can now see Outgoing messages
 ![Outgoing Messages](/assets/images/evh-to-adx/EvhOutgoingMessages.jpg)
-_Successful Incoming Messages_
+_Successful Outgoing Messages_
 
 And in ADX we can see the ingested data
 ![Ingested Data](/assets/images/evh-to-adx/AdxIngestedData.jpg)
