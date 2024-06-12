@@ -222,7 +222,7 @@ And in ADX we can see the ingested data
 ![Ingested Data](/assets/images/evh-to-adx/AdxIngestedData.jpg)
 _Ingested Data_
 
->Useful commands 
+>Useful commands: <br>
 >.show ingestion failures //used to display detailed information about any data ingestion errors that have occurred <br>
 >.show ingestion mappings //retrieves and displays the defined mappings for data ingestion
 {: .prompt-tip }
