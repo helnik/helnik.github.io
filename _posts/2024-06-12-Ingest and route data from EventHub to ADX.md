@@ -196,6 +196,7 @@ The `EventDataBatch` class in C# is a crucial component of the `Azure.Messaging.
 ### Executing the code
 
 Upon code execution we can see that data are successfully sent to Event Hub, but querying our Tables will yield no results.
+
 ![Incoming Messages](/assets/images/evh-to-adx/EvhIncomingMessages.jpg)
 _Successful Incoming Messages_
 
