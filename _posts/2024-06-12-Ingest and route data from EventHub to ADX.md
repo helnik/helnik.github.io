@@ -44,12 +44,12 @@ _New Consumer group creation_
 
 ### ADX Creation 
 
-- **[Create an ADX Cluster](https://learn.microsoft.com/en-us/azure/data-explorer/create-cluster-and-database?tabs=free){:target="_blank"}** <br>
+- **Create an [ADX Cluster](https://learn.microsoft.com/en-us/azure/data-explorer/create-cluster-and-database?tabs=free){:target="_blank"}** <br>
 Search for [Data Explorer](https://portal.azure.com/#browse/Microsoft.Kusto%2Fclusters){:target="_blank"} and in the upper left corner select `+ Create` to create a new Cluster.
 ![New Azure Data Explorer Cluster](/assets/images/evh-to-adx/1.AdxCreateCluster.jpg)
 _New Cluster creation_
 
-- **Create a database**
+- **Create a Database**
 When deployment is complete, go to the resource and the upper left corner select `+ Add Database`. <br>
 ![New Database](/assets/images/evh-to-adx/2.AdxCreateDB.jpg)
 _New Database creation_
@@ -136,7 +136,7 @@ private static byte[] CompressJsonData(string jsonData)
 ```
 
 
-- Create EventData to add to the batch <br>
+- **Create EventData to add to the batch** <br>
 The `EventData` class in C# is a fundamental component of the `Azure.Messaging.EventHubs` library, designed to encapsulate the data payload that you wish to send to an Azure Event Hub. Each instance of `EventData` represents a single event, containing the event's body as a byte array, along with optional properties and system properties that can be used for metadata and **routing** purposes. 
 
 ```c#
@@ -156,7 +156,7 @@ private static EventData CreateEventDataFromChange<T>(T change, string tableName
 >[System properties](https://learn.microsoft.com/en-us/azure/data-explorer/ingest-data-event-hub-overview#event-system-properties-mapping){:target="_blank"} expansion is not supported on Event Hub ingestion of compressed messages.
 {: .prompt-warning }
 
-- Send batch data to Event Hub <br>
+- **Send batch data to Event Hub** <br>
 The `EventDataBatch` class in C# is a crucial component of the `Azure.Messaging.EventHubs library`, designed to optimize the process of sending multiple events to an Azure Event Hub. This class allows developers to group a collection of EventData instances into a single, manageable batch, ensuring that the events are transmitted efficiently and within the size constraints imposed by the Event Hub service. By using `EventDataBatch`, you can maximize throughput and minimize the number of network operations required to send large volumes of event data. The class provides methods to add events to the batch while automatically checking if the batch size exceeds the allowable limit, thus preventing errors and ensuring smooth operation. Utilizing `EventDataBatch` is essential for applications that need to handle high-frequency event generation and transmission, making it a key tool for building scalable and performant event-driven solutions.
 
 ```c#
