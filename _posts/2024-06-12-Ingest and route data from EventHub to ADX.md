@@ -20,7 +20,7 @@ Continuously extracted data from multiple tables in an on-premise SQL Server dat
 
 Creation is straight forward from Azure Portal
 
-- Create an [Event Hub Namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-create){:target="_blank"}. <br>
+- **Create an [Event Hub Namespace](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-create){:target="_blank"}** <br>
 Search for [Event Hubs](https://portal.azure.com/#browse/Microsoft.EventHub%2Fnamespaces){:target="_blank"} and in the upper left corner select `+ Create` to create a new Namespace.
 ![New Event Hub Namespace](/assets/images/evh-to-adx/1.EvhCreateNamespace.jpg)
 _New Event Hub Namespace creation_
@@ -28,11 +28,12 @@ _New Event Hub Namespace creation_
   > Select Standard pricing tier or above, since a dedicated consumer group is needed
   {: .prompt-tip }
 
-- When deployment is complete, go to the resource and the upper left corner select `+ Event Hub`.
+- **Create an Event Hub** <br>
+When deployment is complete, go to the resource and the upper left corner select `+ Event Hub`.
 ![New Event Hub](/assets/images/evh-to-adx/2.EvhCreate.jpg)
 _New Event Hub creation_
 
-- Create a new Consumer group. <br>
+- **Create a new Consumer group** <br>
 Select the newly created Event Hub (having your Namespace go to `Entities -> Event Hubs` and select your Event Hub in the new window). 
 Select the `+ Consumer group` to create a new Consumer group. 
 ![New Event Hub Namespace](/assets/images/evh-to-adx/3.EvhCreateCg.jpg)
@@ -43,12 +44,13 @@ _New Consumer group creation_
 
 ### ADX Creation 
 
-- [Create an ADX Cluster](https://learn.microsoft.com/en-us/azure/data-explorer/create-cluster-and-database?tabs=free){:target="_blank"}. <br>
+- **[Create an ADX Cluster](https://learn.microsoft.com/en-us/azure/data-explorer/create-cluster-and-database?tabs=free){:target="_blank"}** <br>
 Search for [Data Explorer](https://portal.azure.com/#browse/Microsoft.Kusto%2Fclusters){:target="_blank"} and in the upper left corner select `+ Create` to create a new Cluster.
 ![New Azure Data Explorer Cluster](/assets/images/evh-to-adx/1.AdxCreateCluster.jpg)
 _New Cluster creation_
 
-- When deployment is complete, go to the resource and the upper left corner select `+ Add Database`. <br>
+- **Create a database**
+When deployment is complete, go to the resource and the upper left corner select `+ Add Database`. <br>
 ![New Database](/assets/images/evh-to-adx/2.AdxCreateDB.jpg)
 _New Database creation_
 When deployment is complete you will see your newly created Database by navigating to `Data -> Databases`. <br>
@@ -58,7 +60,8 @@ You can execute your queries by selecting and your Database and moving to the qu
 >In a nutshell ingestion mappings provide a flexible way to handle diverse data formats, such as JSON, CSV, or Avro, ensuring that data is accurately parsed and aligned with the schema of the target table. By leveraging ingestion mappings, users can streamline the data ingestion process, reduce errors, and enhance the efficiency of their data analytics workflows, ultimately enabling more insightful and actionable business intelligence. For the purpose of this demo [JSON ingestion mappings](https://learn.microsoft.com/en-us/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language){:target="_blank"} will be used.
 {: .prompt-info }
 
-- Create two new Tables on your Database. Right click your Database and select `Create table`. <br>
+- **Create two new Tables on your Database** <br>
+Right click your Database and select `Create table`. <br>
 For convenience you can use the following commands that create the Tables and their corresponding mappings (run one after another): 
 
 ``` 
@@ -80,7 +83,7 @@ For convenience you can use the following commands that create the Tables and th
 
 ## Streaming GZIP data from C#
 
-- Create a producer client: <br>
+- **Create a producer client** <br>
 The [Event Hub Producer Client in C#](https://learn.microsoft.com/en-us/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet){:target="_blank"}  allows developers to create and send batches of events, ensuring optimal performance and resource utilization. To get started with the Event Hub Producer Client in C#, you should have the Azure.Messaging.EventHubs NuGet package installed in your C# project. Familiarity with asynchronous programming in C# will also be beneficial, as the client leverages async methods to handle event publishing efficiently. With these prerequisites in place, you can begin integrating the Event Hub Producer Client into your applications to enable robust event streaming and data ingestion capabilities.
 
 ```c#
@@ -113,7 +116,7 @@ public class EvenHubFeeder : IFeed
  > `EventHubProducerClient` mimics the `HttpClient` pattern so as a best practice, when your application pushes events regularly you should cache and reuse the the `EventHubProducerClient` for the lifetime of your application. 
   {: .prompt-tip }
 
-- Compress the payload data:<br>
+- **Compress the payload data** <br>
 `GZIP` in .NET is a widely-used compression algorithm that allows developers to efficiently compress and decompress data, reducing the size of files and streams for storage or transmission. The .NET framework provides built-in support for GZIP through classes such as `GZipStream` in the `System.IO.Compression` namespace. These classes enable developers to easily apply GZIP compression to data streams, making it straightforward to compress data before sending it over a network or to decompress data received from a compressed source. By leveraging GZIP in .NET, applications can achieve significant performance improvements in terms of bandwidth usage and storage efficiency, while maintaining compatibility with other systems that support the GZIP format.
 
 ```c#
@@ -133,7 +136,7 @@ private static byte[] CompressJsonData(string jsonData)
 ```
 
 
-- Create EventData to add to the batch:<br>
+- Create EventData to add to the batch <br>
 The `EventData` class in C# is a fundamental component of the `Azure.Messaging.EventHubs` library, designed to encapsulate the data payload that you wish to send to an Azure Event Hub. Each instance of `EventData` represents a single event, containing the event's body as a byte array, along with optional properties and system properties that can be used for metadata and **routing** purposes. 
 
 ```c#
@@ -153,7 +156,7 @@ private static EventData CreateEventDataFromChange<T>(T change, string tableName
 >[System properties](https://learn.microsoft.com/en-us/azure/data-explorer/ingest-data-event-hub-overview#event-system-properties-mapping){:target="_blank"} expansion is not supported on Event Hub ingestion of compressed messages.
 {: .prompt-warning }
 
-- Send batch data to Event Hub:<br>
+- Send batch data to Event Hub <br>
 The `EventDataBatch` class in C# is a crucial component of the `Azure.Messaging.EventHubs library`, designed to optimize the process of sending multiple events to an Azure Event Hub. This class allows developers to group a collection of EventData instances into a single, manageable batch, ensuring that the events are transmitted efficiently and within the size constraints imposed by the Event Hub service. By using `EventDataBatch`, you can maximize throughput and minimize the number of network operations required to send large volumes of event data. The class provides methods to add events to the batch while automatically checking if the batch size exceeds the allowable limit, thus preventing errors and ensuring smooth operation. Utilizing `EventDataBatch` is essential for applications that need to handle high-frequency event generation and transmission, making it a key tool for building scalable and performant event-driven solutions.
 
 ```c#
@@ -223,7 +226,7 @@ And in ADX we can see the ingested data
 ![Ingested Data](/assets/images/evh-to-adx/AdxIngestedData.jpg)
 _Ingested Data_
 
->Useful commands: <br>
+>**Useful commands** <br>
 >.show ingestion failures //used to display detailed information about any data ingestion errors that have occurred <br>
 >.show ingestion mappings //retrieves and displays the defined mappings for data ingestion
 {: .prompt-tip }
