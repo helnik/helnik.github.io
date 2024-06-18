@@ -8,9 +8,20 @@ tags: Azure EventHub ADX C# GZIP
 
 [Azure Data Explorer](https://azure.microsoft.com/en-us/products/data-explorer){:target="_blank"} a.k.a ADX, a not so well known, data analytics service designed to help users unlock valuable insights from vast amounts of raw data. Built by Microsoft, Azure Data Explorer (ADX) is a powerful, fast, and highly scalable tool that excels in real-time and complex event processing, enabling users to analyze large volumes of structured, semi-structured, and unstructured data with exceptional speed and efficiency. Its integration with a wide array of Azure services makes it a versatile and invaluable asset for any data-centric enterprise.
 
-## The Goal (Simplified)
+## When to use ADX
 
-Continuously extracted data from multiple tables in an on-premise SQL Server database needs to be ingested into Azure Data Explorer (ADX). The initial step involves ensuring that ADX mirrors the same schema as the on-premise SQL Server. Data should be sent compressed via Event Hub.
+1. **Real-time Data Ingestion and Analysis:**
+    - You need to perform real-time data ingestion from various sources such as logs, telemetry data, and time-series data.
+    - Quick and responsive querying for fresh data is critical.
+2. **Complex, Ad-hoc Queries:**
+    - You require complex querying capabilities, including full-text search, pattern matching, time series analysis, and advanced analytics.
+    - You need a fast response for ad-hoc and iterative queries.
+3. **Interactive Data Exploration:**
+    - Users need to explore large datasets interactively, with the ability to quickly drill down into data.
+    - The requirement includes data visualization, dashboards, and interactive analytics.
+4. **Optimized for Log and Time-Series Data:**
+    - Your data is predominantly log, event, or time-series data.
+    - Data compression, indexing, and retention policies specific to these types of data are essential.
 
 ## Environment Setup 
 
