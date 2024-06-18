@@ -204,7 +204,7 @@ The `EventDataBatch` class in C# is a crucial component of the `Azure.Messaging.
  }
 ```
 
->You can find the complete code available in [github](https://github.com/helnik/EventHubSamples/tree/master/GzipFeeder){:target="_blank"}
+>You can find the complete code available in [github](https://github.com/helnik/EventHubSamples/tree/master/GzipFeeder){:target="_blank"}.
 >Fill in the `EvhConnectionString` and `EvhName` in the `appsettings.json` file.
 {: .prompt-info }
 
