@@ -30,7 +30,7 @@ _Participating Components_
 [Parquet](https://parquet.apache.org/docs/){:target="_blank"} is an open-source, columnar storage file format designed to bring efficiency compared to row-based files like CSV or JSON. It was developed by Cloudera and Twitter and is now an open-source project under the Apache Software Foundation. Key features of Parquet files:
 
 - **Columnar Storage**: Unlike traditional row-based storage formats, Parquet stores data in columns, which allows for efficient data compression and encoding schemes, reducing storage space. 
-- **Efficient Compression**: Parquet supports various compression algorithms (e.g., Snappy, Gzip, LZO), which can significantly reduce the storage footprint of your data. Better compression ratios means less I/O and faster data scans,which can be significant in cloud environments.
+- **Efficient Compression**: Parquet supports various compression algorithms (e.g., Snappy, Gzip, LZO), which can significantly reduce the storage footprint of your data. Better compression ratios means less I/O and faster data scans, which can be significant in cloud environments.
 - **Efficient Query Performance**: Columnar storage enables faster read times for analytical queries that only need a subset of columns.
 - **Schema Evolution**: Parquet supports schema evolution, allowing you to add new columns without breaking existing data.
 
@@ -146,7 +146,7 @@ _Sample Preview_
 - **Start the job**: <br>
 Having everything in place, from the upper left, select `Start Job`. Soon, Parquet files will start popping in the containers.
 
-### Use Adx to view and query Parquet Data
+### Use ADX to view and query Parquet Data
 ADX has introduced the concept of [external tables](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/schema-entities/external-tables){:target="_blank"} which allow you to query data that resides outside of the ADX database. This can include data stored in various external storage systems such as Azure Blob Storage, Azure Data Lake Storage, and even other databases. By using external tables, you can seamlessly integrate and analyze data from multiple sources without the need to import it into ADX. <br>
 
 Key Benefits of External Tables:
