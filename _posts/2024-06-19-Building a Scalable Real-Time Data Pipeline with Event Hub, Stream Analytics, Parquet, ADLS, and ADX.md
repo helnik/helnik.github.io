@@ -182,6 +182,8 @@ Once done, tables will be visible under the `External Tables` folder. We can que
 ![External table query](/assets/images/real-time-data-pipeline/11.ADXQuery.jpg)
 _External table query_
 
-[//]: # ## Conclusion
+## Conclusion 
+ 
+By leveraging Azure Event Hub, Azure Stream Analytics, Parquet format, Azure Data Lake Storage, and Azure Data Explorer, you can easily create a robust and efficient pipeline (with zero code) that meets your real-time data processing needs.
 
-[//]: # By leveraging Azure Event Hub, Stream Analytics, Parquet, Azure Data Lake Storage, and Azure Data Explorer, you can build a scalable and efficient real-time data pipeline. This setup allows you to handle large volumes of streaming data, process it in real-time, and perform high-performance analytics.
+This architecture not only ensures scalability and performance but also provides flexibility in querying and analyzing data. Whether you're monitoring IoT devices, analyzing financial transactions, or processing social media feeds, this pipeline can be adapted to suit various use cases.
