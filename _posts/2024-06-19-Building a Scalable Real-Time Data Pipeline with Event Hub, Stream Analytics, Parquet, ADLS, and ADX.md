@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a Scalable Real-Time Data Pipeline with Event Hub, Stream Analytics, Parquet, ADLS, and ADX"
-date: 2024-06-18 21:00:00 +0300
+date: 2024-06-19 21:00:00 +0300
 categories: data azure
 tags: ADLS Parquet Stream-Analytics-Job EventHub ADX
 ---
